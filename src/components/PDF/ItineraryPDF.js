@@ -385,7 +385,7 @@ const ItineraryPDF = ({ data }) => (
           
           {/* Right Column: Destination Name & Attractions */}
             <Text>{destination.destinationName}</Text>
-            <Text style={{minHeight: '80%', backgroundColor:'red'}}>{destination.destinationDescription}</Text>
+            <Text style={{minHeight: '80%'}}>{destination.destinationDescription}</Text>
             <Text>Sightseeing: {destination.attractions.join(', ')}</Text>
         </View>
       ))}
