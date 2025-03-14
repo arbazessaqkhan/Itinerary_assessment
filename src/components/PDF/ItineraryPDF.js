@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: '100%',
+    height: '50%',
     resizeMode: 'cover'
   },
   overlay: {
@@ -378,18 +378,21 @@ const ItineraryPDF = ({ data }) => (
 
     {/* Second row with two columns */}
     <View style={{ flexDirection: 'row', justifyContent: 'space-between', flexWrap: 'wrap', marginTop: 10 }}>
-      {day.destinations.map((destination, destIdx) => (
-        <View key={destIdx} style={{ width: '100%', maxHeight:'60%' }}>
-          {/* Left Column: Destination Image */}
-          <Image source={{ uri: destination.destinationImages }} style={styles.image} />
-          
-          {/* Right Column: Destination Name & Attractions */}
-            <Text>{destination.destinationName}</Text>
-            <Text style={{minHeight: '80%'}}>{destination.destinationDescription}</Text>
-            <Text>Sightseeing: {destination.attractions.join(', ')}</Text>
-        </View>
-      ))}
+  {day.destinations.map((destination, destIdx) => (
+    <View key={destIdx} style={{ width: '100%', minHeight: 250, marginBottom: 10 }}>
+      {/* Left Column: Destination Image */}
+      <Image 
+        source={{ uri: destination.destinationImages }} 
+        style={{ width: '100%', height: 200, resizeMode: 'cover', marginBottom: 5 }} 
+      />
+
+      {/* Right Column: Destination Name & Attractions */}
+      <Text style={{ fontWeight: "bold", marginBottom: 5 }}>{destination.destinationName}</Text>
+      <Text style={{ flexShrink: 1, marginBottom: 5 }}>{destination.destinationDescription}</Text>
+      <Text>Sightseeing: {destination.attractions.join(', ')}</Text>
     </View>
+  ))}
+</View>
   </Page>
 ))}
 
